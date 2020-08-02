@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const CatRoute = express.Router();
-const PORT = 4000;
+const PORT = 8000;
 
 let Cat = require('./cats.model');
 app.use(cors());
