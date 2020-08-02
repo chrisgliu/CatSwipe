@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const CatRoute = express.Router();
 const PORT = 4000;
 
-let CatsModel = require('./cats.model');
+let Cat = require('./cats.model');
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -20,7 +20,7 @@ connection.once('open', function() {
 
 //get all
 CatRoute.route('/').get(function(req, res) {
-    CatsModel.find(function(err, cats) {
+    Cat.find(function(err, cats) {
         if (err) { console.log(err);
         } else { res.json(cats); }
     });
@@ -28,13 +28,13 @@ CatRoute.route('/').get(function(req, res) {
 //get specific
 CatRoute.route('/:id').get(function(req, res) {
     let id = req.params.id;
-    CatsModel.findById(id, function(err, cats) {
+    Cat.findById(id, function(err, cats) {
         res.json(cats);
     });
 });
 // change specific
 CatRoute.route('/update/:id').post(function(req, res) {
-    CatsModel.findById(req.params.id, function(err, cat) {
+    Cat.findById(req.params.id, function(err, cat) {
         if (!cat) {res.status(404).send("data is not found"); 
         } else {
             cat.cat_name = req.body.cat_name;
@@ -50,16 +50,18 @@ CatRoute.route('/update/:id').post(function(req, res) {
         });
     });
 });
+// new cat
 CatRoute.route('/add').post(function(req, res) {
-    let cat = new CatsModel(req.body);
+    let chatte = new Cat(req.body);
     cat.save()
-        .then(cat => {
+        .then(chatte => {
             res.status(200).json({'cat': 'cat added successfully'});
         })
         .catch(err => {
             res.status(400).send('adding new cat failed');
         });
 });
+// register cat routes
 app.use('/cats', CatRoute);
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);

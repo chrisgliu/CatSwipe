@@ -8,7 +8,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-let cat = new Schema({
+let Cat = new Schema({
     cat_name: {
         type: String
     },
@@ -22,4 +22,4 @@ let cat = new Schema({
         type: String
     },
 });
-module.exports = mongoose.model('Todo', Todo);
+module.exports = mongoose.model('Cat', Cat);
