@@ -1,32 +1,16 @@
 import * as React from 'react';
 import { Swipeable, direction } from 'react-deck-swiper';
 import classNames from 'classnames';
-
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import GitHubIcon from '@material-ui/icons/GitHub';
 import Grid from '@material-ui/core/Grid';
 
 import CardButtons from './CardButtons';
 import Card from './Card';
 import useStyles from './styles';
 
-const INITIAL_CARDS_STATE = [
-  {
-    id: 1,
-    title: 'This is react deck swiper',
-    text: 'It allows you to build tinder-like swipeable cards easily',
-    url: 'https://images.unsplash.com/photo-1496248051939-0382a018e59a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80',
-  },
-  {
-    id: 2,
-    title: 'and it\'s awesome!',
-    text: 'So, what are you waiting for? 🚀',
-    url: 'https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80',
-  },
-];
 
-const App = () => {
+function App(CardData) {
+  const INITIAL_CARDS_STATE = CardData;
   const classes = useStyles();
 
   const [lastSwipeDirection, setLastSwipeDirection] = React.useState(null);
@@ -34,11 +18,11 @@ const App = () => {
 
   const handleOnSwipe = (swipeDirection) => {
     if (swipeDirection === direction.RIGHT) {
-      setLastSwipeDirection('your right');
+      setLastSwipeDirection('right');
     }
 
     if (swipeDirection === direction.LEFT) {
-      setLastSwipeDirection('your left');
+      setLastSwipeDirection('left');
     }
 
     setCards((prev) => prev.slice(1));
@@ -59,7 +43,6 @@ const App = () => {
       <Grid item xs={12} className={classNames(classes.marginTop5, classes.centerContent)}>
         <Typography variant="h3">
           React Deck Swiper
-          <span role="img" aria-label="awesome"> ⚛️</span>
         </Typography>
       </Grid>
 
@@ -104,42 +87,6 @@ const App = () => {
         }
       </Grid>
 
-      <Grid item xs={12} className={classNames(classes.marginTop2, classes.centerContent)}>
-        <Typography variant="body1">
-          {'Made with '}
-          <span role="img" aria-label="github">❤️</span>
-          {'by '}
-          <a
-            href="https://github.com/pedro-lb"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Pedro Bini
-          </a>
-          {' @ '}
-          <a
-            href="https://jungsoft.io/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Jungsoft
-          </a>
-        </Typography>
-
-        <a
-          href="https://github.com/jungsoft/react-deck-swiper"
-          rel="noopener noreferrer"
-          className={classes.marginTop1}
-          target="_blank"
-        >
-          <IconButton
-            aria-label="github repo"
-            className={classes.margin}
-          >
-            <GitHubIcon color="primary" fontSize="large" />
-          </IconButton>
-        </a>
-      </Grid>
     </Grid>
   );
 };

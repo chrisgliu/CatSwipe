@@ -9,16 +9,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 let Cat = new Schema({
-    cat_name: {
+    name: {
         type: String
     },
-    cat_age: {
+    sex: {
         type: String
     }, 
-    cat_description: {
+    detail: {
         type: String
-    },
-    cat_img: {
+    }, 
+    age: {
+        type: String
+    }, 
+    url: {
         type: String
     },
 });

@@ -21,8 +21,10 @@ const useStyles = makeStyles({
 
 export default function Card({
   item: {
-    title,
-    text,
+    name,
+    sex,
+    detail,
+    age,
     url,
   },
 }) {
@@ -39,10 +41,16 @@ export default function Card({
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="h3">
-            {title}
+            {name}
           </Typography>
           <Typography gutterBottom variant="body1" component="h3">
-            {text}
+            {sex}
+          </Typography>
+          <Typography gutterBottom variant="body1" component="h3">
+            {detail}
+          </Typography>
+          <Typography gutterBottom variant="body1" component="h3">
+            {age}
           </Typography>
         </CardContent>
       </CardActionArea>
