@@ -1,10 +1,10 @@
 
-import React, { Component } from 'react'
+import React from 'react'
 import api from '../api'
 import App from '../react-deck-swiper/App'
+import CardData from '../data';
 
-
-class catList extends Component {
+class CatList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -25,10 +25,12 @@ class catList extends Component {
     }
 
     render() {
-        return (
-           App(this.cats)
-        )
+        if (this.cats !== []){
+            return (App(this.cats))
+        } else {
+            return (App(CardData))
+        } 
     }
 }
 
-export default catList 
+export default CatList 

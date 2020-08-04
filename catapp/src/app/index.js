@@ -1,7 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { NavBar } from './NavBar'
-import { CatList, CatInsert, CatUpdate } from '../pages'
+import NavBar from './NavBar'
+import CatList from '../pages/CatList';
+import CatInsert from '../pages/CatInsert';
+import CatUpdate from '../pages/CatUpdate'
 
 function App() {
     return (

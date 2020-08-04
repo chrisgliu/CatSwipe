@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import api from '../api'
 
 
-class catInsert extends Component {
+class CatInsert extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -71,4 +71,4 @@ class catInsert extends Component {
     }
 }
 
-export default catInsert 
+export default CatInsert 

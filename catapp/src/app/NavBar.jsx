@@ -29,11 +29,9 @@ class Links extends Component {
 class NavBar extends Component {
     render() {
         return (
-            <Container>
-                <Nav>
-                    <Links />
-                </Nav>
-            </Container>
+            <div>
+                <Links />
+            </div>
         )
     }
 }

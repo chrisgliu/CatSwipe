@@ -3,16 +3,21 @@ import React, { Component } from 'react'
 import api from '../api'
 
 
-class catUpdate extends Component {
+class CatUpdate extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            id: 0,
             name: '',
             sex: '',
             detail: '',
             age: '',
             url: '',
         }
+    }
+    handleChangeInputId = async event => {
+        const id = event.target.value
+        this.setState({ id:id})
     }
     handleChangeInputName = async event => {
         const name = event.target.value
@@ -36,7 +41,7 @@ class catUpdate extends Component {
     } 
 
     handleUpdateCat = async () => {
-        const { name, sex, detail, age, url} = this.state
+        const {id, name, sex, detail, age, url} = this.state
         const payload = { name, sex, detail, age, url}
 
         await api.updateMovieById(id, payload).then(res => {
@@ -68,6 +73,8 @@ class catUpdate extends Component {
         return (
             <div>
                 <h1>Change Cat</h1>
+                <label>Id: </label>
+                <input type="number" value={this.state.id} onChange={this.handleChangeInputId}/>
                 <label>Name: </label>
                 <input type="text" value={this.state.name} onChange={this.handleChangeInputName}/>
                 <label>Sex: </label>
@@ -85,4 +92,4 @@ class catUpdate extends Component {
     }
 }
 
-export default catUpdate
+export default CatUpdate
