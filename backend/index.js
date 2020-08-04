@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./connectdb')
 const catrouter = require('./router/catrouter')
-const app = express()
 const apiPort = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }))

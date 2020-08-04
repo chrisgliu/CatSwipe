@@ -12,12 +12,12 @@ class Links extends Component {
                     <ul>
                         <li>
                             <Link to="/list" className="nav-link">
-                               List Movies
+                               See Cats
                             </Link>
                         </li>
                         <li>
                             <Link to="/create" className="nav-link">
-                                Create Movie
+                                Add Cats
                             </Link>
                         </li>
                     </ul>

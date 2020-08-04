@@ -91,16 +91,16 @@ getCatById = async (req, res) => {
 }
 
 getCats = async (req, res) => {
-    await Cat.find({}, (err, cat) => {
+    await Cat.find({}, (err, cats) => {
         if (err) {
             return res.status(400).json({ error: err })
         }
-        if (!movies.length) {
+        if (!cats.length) {
             return res
                 .status(404)
                 .json({ error: `Cat not found` })
         }
-        return res.status(200).json({ data: cat })
+        return res.status(200).json({ data: cats })
     }).catch(err => console.log(err))
 }
 
