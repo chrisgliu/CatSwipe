@@ -1,16 +1,17 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'http://localhost:8000/cats',
+    baseURL: 'http://localhost:8000',
 })
 // new cat
-export const insertCat = payload => api.post(`/add`, payload)
+export const insertCat = payload => api.post(`/items`, payload)
 // all cats
-export const getAllCats = () => api.get(`/`)
+export const getAllCats = () => api.get(`/items`)
+  
 // change cat
-export const updateCatById = (id, payload) => api.put(`/update/${id}`, payload)
+export const updateCatById = (id, payload) => api.put(`/items/${id}`, payload)
 // get cat
-export const getCatById = id => api.get(`/${id}`)
+export const getCatById = id => api.get(`/items/${id}`)
 
 const apis = {
     insertCat,

@@ -2,7 +2,6 @@
 import React from 'react'
 import api from '../api'
 import Swiper from '../react-deck-swiper/App'
-import CardData from '../data';
 
 class CatList extends React.Component {
     constructor(props) {
@@ -18,7 +17,7 @@ class CatList extends React.Component {
 
         await api.getAllCats().then(catos => {
             this.setState({
-                cats: catos.data.data,
+                cats: catos.data,
                 isLoading: false,
             })
         })
@@ -26,7 +25,7 @@ class CatList extends React.Component {
 
     render() {
         return (
-            <Swiper Cards={CardData}/>
+            <Swiper Cards={this.state.cats}/>
         )
     }
 }

@@ -7,6 +7,8 @@ const body_parser = require("body-parser");
 
 // parse JSON (application/json content-type)
 server.use(body_parser.json());
+var cors = require('cors');
+server.use(cors());
 
 const port = 8000;
 
